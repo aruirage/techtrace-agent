@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.DS_Store
+backend/__pycache__/
+node_modules/
+.npm-cache/
+dist/
+.pytest_cache/
+.coverage
+*.log
