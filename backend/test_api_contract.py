@@ -140,6 +140,12 @@ class AnalyzeApiContractTest(unittest.TestCase):
         self.assertIsInstance(payload["sourceCoverage"], list)
         self.assertIsInstance(payload["supplementalMaterials"], list)
 
+    def test_health_routes_are_available(self) -> None:
+        for path in ("/health", "/api/health"):
+            response = self.client.get(path)
+            self.assertEqual(response.status_code, 200, path)
+            self.assertEqual(response.json(), {"status": "ok"})
+
 
 def _build_blank_pdf() -> bytes:
     writer = PdfWriter()
